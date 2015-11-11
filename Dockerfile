@@ -12,7 +12,7 @@ RUN echo "deb http://mirror.leaseweb.net/debian/ stable main" > /etc/apt/sources
         php5-intl php5-pgsql php5-xdebug php5-xsl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY assets/configs/ /opt/cake/
+COPY assets/configs/ /opt/cake/configs/
 
 COPY assets/install.sh /usr/bin/
 RUN chmod 755 /usr/bin/install.sh
