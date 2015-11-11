@@ -14,10 +14,10 @@ RUN echo "deb http://mirror.leaseweb.net/debian/ stable main" > /etc/apt/sources
 
 COPY assets/configs/ /opt/cake
 
-COPY assets/install.sh /usr/bin
+COPY assets/install.sh /usr/bin/
 RUN chmod 755 /usr/bin/install.sh
 
-COPY assets/init.sh /usr/bin
+COPY assets/init.sh /usr/bin/
 RUN chmod 755 /usr/bin/init.sh
 
 RUN /usr/bin/install.sh
