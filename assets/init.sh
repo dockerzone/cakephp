@@ -7,16 +7,15 @@ ROOT_PASSWORD="${ROOT_PASSWORD:-rootphp}"
 CAKE_POSTGRES_PASSWORD="${CAKE_POSTGRES_PASSWORD:-cakephp}"
 
 CAKE_NGINX_LISTEN="${CAKE_NGINX_LISTEN:-80}"
-CAKE_NGINX_SERVER_NAME="${CAKE_NGINX_SERVER_NAME:-localhost 127.0.0.1}"
 DEFAULT_NGINX_LISTEN="${DEFAULT_NGINX_LISTEN:-8080}"
-DEFAULT_NGINX_SERVER_NAME="${DEFAULT_NGINX_SERVER_NAME:-localhost 127.0.0.1}"
+YOUR_SERVER_FQDN="${YOUR_SERVER_FQDN:-localhost}"
 
 nginxConfig () {
   sed 's/{{CAKE_NGINX_LISTEN}}/'"${CAKE_NGINX_LISTEN}"'/' -i /etc/nginx/sites-enabled/cake
-  sed 's/{{CAKE_NGINX_SERVER_NAME}}/'"${CAKE_NGINX_SERVER_NAME}"'/' -i /etc/nginx/sites-enabled/cake
+  sed 's/{{YOUR_SERVER_FQDN}}/'"${YOUR_SERVER_FQDN}"'/' -i /etc/nginx/sites-enabled/cake
 
   sed 's/{{DEFAULT_NGINX_LISTEN}}/'"${DEFAULT_NGINX_LISTEN}"'/' -i /etc/nginx/sites-enabled/default
-  sed 's/{{DEFAULT_NGINX_SERVER_NAME}}/'"${DEFAULT_NGINX_SERVER_NAME}"'/' -i /etc/nginx/sites-enabled/default
+  sed 's/{{YOUR_SERVER_FQDN}}/'"${YOUR_SERVER_FQDN}"'/' -i /etc/nginx/sites-enabled/default
 }
 
 appInit () {

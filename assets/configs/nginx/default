@@ -1,6 +1,6 @@
 server {
     listen {{DEFAULT_NGINX_LISTEN}};
-    server_name {{DEFAULT_NGINX_SERVER_NAME}};
+    server_name {{YOUR_SERVER_FQDN}};
     set $tools  /srv/tools;
     client_max_body_size 20M;
     location /phppgadmin {

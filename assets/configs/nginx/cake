@@ -1,12 +1,6 @@
 server {
     listen {{CAKE_NGINX_LISTEN}};
-    server_name www.{{CAKE_NGINX_SERVER_NAME}};
-    rewrite ^(.*) http://{{CAKE_NGINX_SERVER_NAME}}$1 permanent;
-}
-
-server {
-    listen {{CAKE_NGINX_LISTEN}};
-    server_name {{CAKE_NGINX_SERVER_NAME}};
+    server_name {{YOUR_SERVER_FQDN}};
 
     # root directive should be global
     root   /srv/www/webroot/;
