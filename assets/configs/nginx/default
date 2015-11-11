@@ -1,0 +1,36 @@
+server {
+    listen {{DEFAULT_NGINX_LISTEN}};
+    server_name {{DEFAULT_NGINX_SERVER_NAME}};
+    set $tools  /srv/tools;
+    client_max_body_size 20M;
+    location /phppgadmin {
+        root $tools;
+        index index.php index.html index.htm;
+        location ~ ^/phppgadmin/(.+\.php)$ {
+               try_files $uri =404;
+               root $tools;
+               fastcgi_pass unix:/var/run/php5-fpm.sock;
+               fastcgi_index index.php;
+               fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+               include /etc/nginx/fastcgi_params;
+        }
+        location ~* ^/phppgadmin/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
+               root $tools;
+        }
+    }
+    location /adminer {
+        root $tools;
+        index index.php index.html index.htm;
+        location ~ ^/adminer/(.+\.php)$ {
+               try_files $uri =404;
+               root $tools;
+               fastcgi_pass unix:/var/run/php5-fpm.sock;
+               fastcgi_index index.php;
+               fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+               include /etc/nginx/fastcgi_params;
+        }
+        location ~* ^/adminer/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
+               root $tools;
+        }
+    }
+}
