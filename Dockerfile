@@ -9,7 +9,7 @@ RUN echo "deb http://mirror.leaseweb.net/debian/ stable main" > /etc/apt/sources
         zip dnsutils mlocate logrotate locales nano vim \
         nginx openssh-server postgresql-client-9.4 postgresql-9.4 \
         php5-cli php5-curl php-pear php5-dev php5-fpm php5-gd php5-mcrypt \
-        php5-intl php5-pgsql php5-xdebug php5-xsl \
+        php5-intl php5-pgsql php5-mysql php5-sqlite php5-xdebug php5-xsl \
     && rm -rf /var/lib/apt/lists/*
 
 COPY assets/configs/ /opt/cake/configs/
